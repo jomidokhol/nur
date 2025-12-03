@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachelor Point S5 - @kabila123</title>
+    <style>
+        /* General Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #141414; color: white; padding: 20px; padding-bottom: 80px; }
+
+        /* --- Header Styling --- */
+        .header-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        h1 {
+            display: inline-block;
+            font-size: clamp(18px, 5vw, 2.5rem); 
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid;
+            padding-bottom: 10px;
+            margin: 0;
+            animation: colorChange 4s infinite linear;
+        }
+
+        @keyframes colorChange {
+            0% { color: #e50914; border-color: #e50914; }
+            33% { color: #00c3ff; border-color: #00c3ff; }
+            66% { color: #40ff00; border-color: #40ff00; }
+            100% { color: #e50914; border-color: #e50914; }
+        }
+
+        /* --- Grid & Card Styling --- */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .movie-card {
+            background-color: #2f2f2f;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .movie-card:hover { transform: scale(1.05); background-color: #404040; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
+        /* --- Image Fix (16:9 Ratio & Adjustment) --- */
+        .image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* YouTube Thumbnail Size */
+            background-color: #000; /* Black background to fill gaps */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #e50914;
+            overflow: hidden;
+        }
+
+        .movie-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures full image is visible without cropping */
+        }
+
+        .movie-title { padding: 15px; text-align: center; font-size: 1.1rem; font-weight: bold; }
+
+        /* --- Modal Styling --- */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); z-index: 1000;
+            justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background-color: #fff; color: #333; width: 90%; max-width: 500px;
+            border-radius: 12px; padding: 25px; text-align: center; position: relative;
+        }
+        .modal-header { display: flex; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; }
+        .modal-thumb { width: 120px; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-right: 15px; background: #000; }
+        .modal-title { font-size: 1.3rem; font-weight: bold; color: #000; }
+        
+        .watch-btn {
+            background-color: #e50914; color: white; border: none; padding: 12px 30px;
+            font-size: 1.1rem; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; margin-bottom: 15px;
+        }
+        .watch-btn:hover { background-color: #b20710; }
+        .close-modal { position: absolute; top: 10px; right: 15px; font-size: 28px; cursor: pointer; color: #888; }
+        .info-text-highlight { font-weight: bold; display: block; margin-bottom: 5px; }
+        .info-text-sub { font-size: 0.9rem; color: #666; display: block; margin-bottom: 20px; }
+
+        /* --- Telegram Button --- */
+        .telegram-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 500;
+            pointer-events: none;
+        }
+
+        .telegram-btn {
+            background-color: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: transform 0.2s;
+            pointer-events: auto;
+        }
+        
+        .telegram-btn:hover { transform: scale(1.05); background-color: #0077b5; }
+        .telegram-btn svg { width: 24px; height: 24px; fill: white; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>ব্যাচেলর পয়েন্ট S4 | ৪৮ - ৫৬</h1>
+    </div>
+
+    <div class="movie-grid">
+        <!-- Episode 49 -->
+        <div class="movie-card" onclick="openModal('Episode 49', 'https://i.ibb.co.com/YFPL4SZ0/IMG-20251203-224103.png', 'https://t.me/+RTNDSFxE1j1kNGVl')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/YFPL4SZ0/IMG-20251203-224103.png" alt="Ep 49" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 49</div>
+        </div>
+
+        <!-- Episode 50 -->
+        <div class="movie-card" onclick="openModal('Episode 50', 'https://i.ibb.co.com/S7MWkqB6/2-20251203-221206-0001.png', 'https://t.me/+veOjMhWs_NhhYzk1')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/S7MWkqB6/2-20251203-221206-0001.png" alt="Ep 50" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 50</div>
+        </div>
+
+        <!-- Episode 51 -->
+        <div class="movie-card" onclick="openModal('Episode 51', 'https://i.ibb.co.com/ycH5GWkx/3-20251203-221206-0002.png', 'https://YOUR_LINK_EP_51.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/ycH5GWkx/3-20251203-221206-0002.png" alt="Ep 51" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 51</div>
+        </div>
+
+        <!-- Episode 52 -->
+        <div class="movie-card" onclick="openModal('Episode 52', 'https://i.ibb.co.com/wZjPjyhv/4-20251203-221206-0003.png', 'https://YOUR_LINK_EP_52.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/wZjPjyhv/4-20251203-221206-0003.png" alt="Ep 52" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 52</div>
+        </div>
+
+        <!-- Episode 53 (Restored) -->
+        <div class="movie-card" onclick="openModal('Episode 53', 'https://i.ibb.co.com/pjhfdcPb/5-20251203-221206-0004.png', 'https://YOUR_LINK_EP_53.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/pjhfdcPb/5-20251203-221206-0004.png" alt="Ep 53" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 53</div>
+        </div>
+
+        <!-- Episode 54 (Restored) -->
+        <div class="movie-card" onclick="openModal('Episode 54', 'https://i.ibb.co.com/V4rS6XQ/6-20251203-221206-0005.png', 'https://YOUR_LINK_EP_54.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/V4rS6XQ/6-20251203-221206-0005.png" alt="Ep 54" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 54</div>
+        </div>
+
+        <!-- Episode 55 (Restored) -->
+        <div class="movie-card" onclick="openModal('Episode 55', 'https://i.ibb.co.com/JWs3vM65/7-20251203-221206-0006.png', 'https://YOUR_LINK_EP_55.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/JWs3vM65/7-20251203-221206-0006.png" alt="Ep 55" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 55</div>
+        </div>
+
+        <!-- Episode 56 (Restored) -->
+        <div class="movie-card" onclick="openModal('Episode 56', 'https://i.ibb.co.com/N2qm5n6q/8-20251203-221206-0007.png', 'https://YOUR_LINK_EP_56.com')">
+            <div class="image-container">
+                <img src="https://i.ibb.co.com/N2qm5n6q/8-20251203-221206-0007.png" alt="Ep 56" class="movie-banner">
+            </div>
+            <div class="movie-title">Episode 56</div>
+        </div>
+    </div>
+
+    <!-- Telegram Button -->
+    <div class="telegram-container">
+        <a href="https://t.me/Bachelor_point_Season5_all" target="_blank" class="telegram-btn">
+            <!-- Telegram SVG Icon -->
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Join Telegram Channel
+        </a>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <img id="modal-img" src="" alt="Thumbnail" class="modal-thumb">
+                <div id="modal-title-text" class="modal-title"></div>
+            </div>
+            <div class="modal-body">
+                <span class="info-text-highlight">ভিডিওটি প্লে করতে ৩০ সেকেন্ড অপেক্ষা করুন</span>
+                <span class="info-text-sub">নিচের বাটনে ক্লিক করলে একটি বিজ্ঞাপন পেজ আসবে।</span>
+                
+                <button class="watch-btn" onclick="goToAdPage()">ভিডিও দেখুন</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('infoModal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title-text');
+        
+        let currentDestUrl = "";
+
+        function openModal(title, imgSrc, destUrl) {
+            modalTitle.textContent = title;
+            modalImg.src = imgSrc;
+            currentDestUrl = destUrl; 
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+        }
+
+        function goToAdPage() {
+            if(currentDestUrl) {
+                // Redirect to separate ad file
+                window.location.href = "ad.html?target=" + encodeURIComponent(currentDestUrl);
+            } else {
+                alert("Link not found!");
+            }
+        }
+    </script>
+</body>
+</html>       const countdownEl = document.getElementById('countdown');
+        
+        // This variable will hold the destination URL for the specific episode
+        let currentDestinationUrl = "";
+
+        // Function to open modal and set data
+        // Now accepts 3 arguments: Title, Image Source, and Destination URL
+        function openModal(title, imgSrc, destUrl) {
+            modalTitle.textContent = title;
+            modalImg.src = imgSrc;
+            currentDestinationUrl = destUrl; // Store the unique link
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Ad Viewing Flow
+        function startAdFlow() {
+            modal.style.display = 'none';
+            adScreen.style.display = 'flex';
+            
+            let timeLeft = 30; // 30 Seconds timer
+            countdownEl.textContent = timeLeft;
+
+            const timer = setInterval(() => {
+                timeLeft--;
+                countdownEl.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Redirect to the specific episode URL
+                    if(currentDestinationUrl) {
+                        window.location.href = currentDestinationUrl;
+                    } else {
+                        alert("Destination URL not found!");
+                        window.location.reload();
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

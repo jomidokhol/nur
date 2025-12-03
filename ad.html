@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body {
+            background-color: black;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .countdown-number {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+        .ad-text { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
+        .warning { color: red; font-size: 0.9rem; animation: pulse 1s infinite; }
+        
+        @keyframes pulse {
+            0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown" class="countdown-number">30</div>
+    <div class="ad-text">Please wait... advertisement in progress.</div>
+    <div class="warning">Do not click anywhere / দয়া করে কোথাও ক্লিক করবেন না</div>
+
+    <script>
+        // Get the target URL from the query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetUrl = urlParams.get('target');
+
+        const countdownEl = document.getElementById('countdown');
+        let timeLeft = 30;
+
+        // Start Countdown
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                if (targetUrl) {
+                    // Redirect to the actual video link
+                    window.location.href = targetUrl;
+                } else {
+                    document.querySelector('.ad-text').textContent = "Error: Invalid Link.";
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
