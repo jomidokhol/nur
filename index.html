@@ -98,6 +98,21 @@
         .info-text-highlight { font-weight: bold; display: block; margin-bottom: 5px; }
         .info-text-sub { font-size: 0.9rem; color: #666; display: block; margin-bottom: 20px; }
 
+        /* --- Warning Text Animation --- */
+        .warning-text {
+            color: red;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 5px;
+            animation: warningPulse 1.5s infinite;
+        }
+
+        @keyframes warningPulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
         /* --- Telegram Button --- */
         .telegram-container {
             position: fixed;
@@ -134,7 +149,7 @@
 <body>
 
     <div class="header-container">
-        <h1>ব্যাচেলর পয়েন্ট S4 | ৪৮ - ৫৬</h1>
+        <h1>ব্যাচেলর পয়েন্ট S5 | ৪৮ - ৫৬</h1>
     </div>
 
     <div class="movie-grid">
@@ -225,6 +240,9 @@
                 <span class="info-text-sub">৩০ সেকেন্ড পর অটোমেটিক ভিডিওটি প্লে হবে।</span>
                 
                 <button class="watch-btn" onclick="goToAdPage()">দেখুন</button>
+                
+                <!-- Added Warning Text -->
+                <div class="warning-text">স্ক্রিনের কোথাও টাচ করবেন না</div>
             </div>
         </div>
     </div>
