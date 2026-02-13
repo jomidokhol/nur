@@ -144,6 +144,26 @@
         .telegram-btn:hover { transform: scale(1.05); background-color: #0077b5; }
         .telegram-btn svg { width: 24px; height: 24px; fill: white; }
 
+        /* --- Ad Container Utility --- */
+        .ad-container-centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Responsive Ad Card fix */
+        .ad-card-wrapper {
+            background-color: transparent;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
     </style>
 </head>
 <body>
@@ -185,6 +205,13 @@
             <div class="movie-title">Episode 52</div>
         </div>
 
+        <!-- ADSTERRA NATIVE AD (PLACED IN MIDDLE OF GRID) -->
+        <div class="movie-card ad-card-wrapper">
+            <script async="async" data-cfasync="false" src="//pl28183360.effectivegatecpm.com/8edeadbe4d91677ac02b45ef74a41e38/invoke.js"></script>
+            <div id="container-8edeadbe4d91677ac02b45ef74a41e38"></div>
+        </div>
+        <!-- END ADSTERRA NATIVE AD -->
+
         <!-- Episode 53 (Restored) -->
         <div class="movie-card" onclick="openModal('Episode 53', 'https://i.ibb.co.com/pjhfdcPb/5-20251203-221206-0004.png', 'https://t.me/+t1JJQAq6SuEwZTI1')">
             <div class="image-container">
@@ -217,6 +244,21 @@
             <div class="movie-title">Episode 56</div>
         </div>
     </div>
+
+    <!-- ADSTERRA VERTICAL BANNER (PLACED AFTER GRID) -->
+    <div class="ad-container-centered">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '6fdedb71460df4e1e5d525a6ac73433e',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.topcreativeformat.com/6fdedb71460df4e1e5d525a6ac73433e/invoke.js"></script>
+    </div>
+    <!-- END ADSTERRA VERTICAL BANNER -->
 
     <!-- Telegram Button -->
     <div class="telegram-container">
@@ -278,5 +320,10 @@
             }
         }
     </script>
+
+    <!-- ADSTERRA POP-UNDER / INVISIBLE ADS (PLACED AT BOTTOM) -->
+    <script type="text/javascript" src="//pl28183355.effectivegatecpm.com/a6/47/16/a64716f027dabd79f8eaccc1321ebe4d.js"></script>
+    <script type="text/javascript" src="//pl28183368.effectivegatecpm.com/a0/aa/77/a0aa773b9f0dbea2c81ed1e46935887f.js"></script>
+    <!-- END ADSTERRA ADS -->
 </body>
 </html>
